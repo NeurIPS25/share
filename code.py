@@ -1,4 +1,10 @@
+def sample_categorical(categorical_probs):
+    # A simple sample function based on probability distribution
+    *sample_shape, C = categorical_probs.shape
+    return torch.multinomial(categorical_probs.reshape(-1, C), num_samples=1).reshape(*sample_shape)
+    
 # paste me to modelling_mmada.py to replace t2i_generate() and try it!
+    
     @torch.no_grad()
     def t2i_generate_reddit(
             self,
